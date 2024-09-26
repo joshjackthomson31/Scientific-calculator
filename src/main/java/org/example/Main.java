@@ -107,7 +107,7 @@ public class Main {
 
             default:
                 logger.warn("Invalid choice entered.");
-                System.out.println("Invalid choice! Please select a valid operation.");
+                System.out.println("Invalid choice. Please select a valid operation.");
                 break;
         }
 
