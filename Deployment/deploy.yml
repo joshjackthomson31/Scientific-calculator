@@ -1,11 +1,22 @@
 ---
-- name: Pull Docker image of Calculator
+- name: Manage Docker and Deploy Calculator Container
   hosts: all
   connection: local
   vars:
     ansible_python_interpreter: /usr/bin/python3
   tasks:
-    - name: Pull image
+    
+    - name: Start Docker service
+      service:
+        name: docker
+        state: started
+
+    - name: Stop all running containers
+      shell: docker ps -q | xargs --no-run-if-empty docker stop
+      ignore_errors: true
+
+    - name: Pull Docker image of Calculator
       shell: docker pull ijoshjackthomson/scientific_calculator:latest
+
     - name: Running container
       shell: docker run -it -d --name scientific_calculator ijoshjackthomson/scientific_calculator
