@@ -16,7 +16,7 @@ public class MainTest {
     @Test
     public void testSquareRoot_ValidInput() {
         double result = calculator.squareRoot(16);
-        assertEquals(3.0, result, 0.0001);
+        assertEquals(4.0, result, 0.0001);
     }
 
     @Test
